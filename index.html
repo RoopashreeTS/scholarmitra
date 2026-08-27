@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScholarMitra — Smart Scholarship Discovery & Matching Platform</title>
+  <meta name="description" content="ScholarMitra provides AI-guided, explainable scholarship discovery and eligibility matching for undergraduate, technical, and postgraduate students across India.">
+  <meta name="theme-color" content="#8B5CF6">
+
+  <!-- Open Graph / Social Media Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ScholarMitra — Smart Scholarship Discovery & Matching Platform">
+  <meta property="og:description" content="AI-guided explainable scholarship discovery and eligibility matching for Indian students.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScholarMitra — Smart Scholarship Discovery">
+  <meta name="twitter:description" content="AI-guided explainable scholarship discovery and eligibility matching for Indian students.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238B5CF6'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z'/></svg>">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphism Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Scholar<span>Mitra</span></span>
+          <span class="brand-subtitle">AI Discovery Engine</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#matcher-section" class="nav-link">Find Scholarships</a>
+        <a href="#explorerSection" class="nav-link">Explore All</a>
+        <a href="#assistant-section" class="nav-link">Scholarship Assistant</a>
+        <a href="#checklist-section" class="nav-link">Document Checklist</a>
+        <a href="#insights-section" class="nav-link">Insights</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#matcher-section" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Find My Matches
+        </a>
+        <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileNav" class="mobile-nav">
+      <a href="#matcher-section" class="nav-link" onclick="toggleMobileNav()">Find Scholarships</a>
+      <a href="#explorerSection" class="nav-link" onclick="toggleMobileNav()">Explore All</a>
+      <a href="#assistant-section" class="nav-link" onclick="toggleMobileNav()">Scholarship Assistant</a>
+      <a href="#checklist-section" class="nav-link" onclick="toggleMobileNav()">Document Checklist</a>
+      <a href="#insights-section" class="nav-link" onclick="toggleMobileNav()">Insights</a>
+      <a href="#matcher-section" class="btn-primary" onclick="toggleMobileNav()" style="text-align: center;">Find My Matches</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span class="hero-pill-badge">WebCraft 2026</span>
+          <span>Verified AI Scholarship Discovery Platform</span>
+        </div>
+
+        <h1 class="hero-title">
+          Discover, Match & Secure Your Ideal Scholarship with <span class="gradient-text">Explainable AI</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Real-time eligibility calculation across 100% verified national, state, and corporate CSR programs. Clear requirement breakdowns, automated document checklists, and direct portal redirection.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#matcher-section" class="btn-primary" style="padding: 13px 28px; font-size: 1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Match My Profile Now
+          </a>
+          <a href="#assistant-section" class="btn-outline" style="padding: 13px 26px; font-size: 1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Ask AI Assistant
+          </a>
+        </div>
+
+        <!-- Quick Impact Metrics Strip -->
+        <div class="metrics-strip">
+          <div class="metric-item">
+            <span class="metric-val purple">₹45.8 Cr+</span>
+            <span class="metric-label">Total Fund Allocation</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val green">100%</span>
+            <span class="metric-label">Verified Official Portals</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val blue">18+ Active</span>
+            <span class="metric-label">Open 2026-27 Cycles</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val orange">94.2%</span>
+            <span class="metric-label">Explainable Match Accuracy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Grids (6 Pillars with Category Accents) -->
+    <section class="section-padding" style="background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Architecture</span>
+          <h2 class="section-title">Engineered for Transparency & Success</h2>
+          <p class="section-desc">
+            ScholarMitra simplifies the complex scholarship landscape with purpose-built intelligent modules designed for students across India.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <!-- Smart Matching (Purple) -->
+          <div class="feature-card f-purple">
+            <div class="feature-icon-box c-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Smart Matching</h3>
+            <p class="feature-desc">
+              Explainable multi-criteria scoring assessing degree, domicile state, CGPA, category, and income limits. No arbitrary percentages.
+            </p>
+            <a href="#matcher-section" class="feature-link">Calculate Match Score <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- Scholarship Assistant (Blue) -->
+          <div class="feature-card f-blue">
+            <div class="feature-icon-box c-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <circle cx="9" cy="10" r="1"/>
+                <circle cx="15" cy="10" r="1"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Scholarship Assistant</h3>
+            <p class="feature-desc">
+              Interactive AI query resolver for rapid guidance on eligibility rules, deadline advice, and specific scheme requirements.
+            </p>
+            <a href="#assistant-section" class="feature-link">Chat with Assistant <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- Latest Scholarship News (Orange) -->
+          <div class="feature-card f-orange">
+            <div class="feature-icon-box c-orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Latest Scholarship News</h3>
+            <p class="feature-desc">
+              Stay ahead with closing-soon alerts, quota expansions, and active 2026-27 renewal circulars from state and central bodies.
+            </p>
+            <a href="#explorerSection" class="feature-link">View Closing Soon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- Verified Scholarships (Green) -->
+          <div class="feature-card f-green">
+            <div class="feature-icon-box c-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Verified Scholarships</h3>
+            <p class="feature-desc">
+              Every scheme is validated against official gazettes, government DBT repositories, and certified corporate CSR portals.
+            </p>
+            <a href="#explorerSection" class="feature-link">Explore Verified <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- Document Checklist (Teal) -->
+          <div class="feature-card f-teal">
+            <div class="feature-icon-box c-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Document Checklist</h3>
+            <p class="feature-desc">
+              Interactive readiness checklist for Aadhaar seeding, RD income certs, bonafide letters, and marks cards with local persistence.
+            </p>
+            <a href="#checklist-section" class="feature-link">Open Checklist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- Scholarship Insights (Pink) -->
+          <div class="feature-card f-pink">
+            <div class="feature-icon-box c-pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Scholarship Insights</h3>
+            <p class="feature-desc">
+              Visual data distributions by stream, state, award amount, and verification status to help you uncover high-value opportunities.
+            </p>
+            <a href="#insights-section" class="feature-link">View Statistics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Find My Scholarships (Smart Profile Matcher Form) -->
+    <section id="matcher-section" class="section-padding">
+      <div class="container">
+        <div class="matcher-wrapper">
+          <div class="matcher-header">
+            <div class="matcher-header-left">
+              <span class="section-tag" style="margin-bottom: 8px;">Explainable Match Engine</span>
+              <h3>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Find My Scholarships Profile
+              </h3>
+              <p>Configure your academic and demographic details. Our engine calculates accurate eligibility weights and sorts top matches first.</p>
+            </div>
+            <div id="activeProfileSummary" class="active-profile-summary">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <form id="profileForm">
+            <div class="profile-form-grid">
+              <!-- Course -->
+              <div class="form-group">
+                <label class="form-label" for="profileCourse">
+                  Enrolled Course / Degree <span class="form-label-hint">(Select your stream)</span>
+                </label>
+                <select id="profileCourse" class="form-control">
+                  <option value="BCA">BCA (Bachelor of Computer Applications)</option>
+                  <option value="B.Tech / BE">B.Tech / BE (Engineering & Tech)</option>
+                  <option value="B.Sc">B.Sc (Pure Sciences / IT)</option>
+                  <option value="B.Com">B.Com / BBA (Commerce & Mgmt)</option>
+                  <option value="MBBS">MBBS / BDS (Medical)</option>
+                  <option value="Diploma">Diploma / Polytechnic</option>
+                  <option value="MCA">MCA / M.Tech (Postgraduate Tech)</option>
+                  <option value="BA">BA (Humanities / Arts)</option>
+                </select>
+              </div>
+
+              <!-- Year of Study -->
+              <div class="form-group">
+                <label class="form-label" for="profileYear">
+                  Year of Study <span class="form-label-hint">(Current academic year)</span>
+                </label>
+                <select id="profileYear" class="form-control">
+                  <option value="1st Year">1st Year (Fresher)</option>
+                  <option value="2nd Year">2nd Year</option>
+                  <option value="3rd Year">3rd Year</option>
+                  <option value="4th Year">4th Year (Final Year)</option>
+                </select>
+              </div>
+
+              <!-- Domicile State -->
+              <div class="form-group">
+                <label class="form-label" for="profileState">
+                  Domicile State <span class="form-label-hint">(Home state)</span>
+                </label>
+                <select id="profileState" class="form-control">
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Delhi">Delhi NCR</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="All India">Other State (Pan-India Schemes)</option>
+                </select>
+              </div>
+
+              <!-- Percentage / CGPA -->
+              <div class="form-group">
+                <label class="form-label" for="profilePercentage">
+                  Percentage / CGPA <span class="form-label-hint">(Previous exam % or equivalent)</span>
+                </label>
+                <input type="number" id="profilePercentage" class="form-control" value="78" min="35" max="100" step="0.1" placeholder="e.g. 78.5">
+              </div>
+
+              <!-- Category -->
+              <div class="form-group">
+                <label class="form-label" for="profileCategory">
+                  Social Category <span class="form-label-hint">(As per certificate)</span>
+                </label>
+                <select id="profileCategory" class="form-control">
+                  <option value="OBC">OBC (Other Backward Classes / Category 1, 2A, 2B, 3A, 3B)</option>
+                  <option value="SC">SC (Scheduled Caste)</option>
+                  <option value="ST">ST (Scheduled Tribe)</option>
+                  <option value="General">General / Open Category</option>
+                  <option value="EWS">EWS (Economically Weaker Section)</option>
+                  <option value="Minority">Minority (Muslim, Christian, Jain, Sikh, Parsi, Buddhist)</option>
+                  <option value="PwD">Differently-Abled (PwD ≥ 40%)</option>
+                </select>
+              </div>
+
+              <!-- Annual Family Income -->
+              <div class="form-group">
+                <label class="form-label" for="profileIncome">
+                  Annual Family Income <span class="form-label-hint">(Gross annual income)</span>
+                </label>
+                <select id="profileIncome" class="form-control">
+                  <option value="150000">Below ₹1.5 Lakhs / year (BPL / Priority)</option>
+                  <option value="200000">Below ₹2.0 Lakhs / year</option>
+                  <option value="250000" selected>Below ₹2.5 Lakhs / year (SSP / NSP standard)</option>
+                  <option value="400000">Below ₹4.0 Lakhs / year</option>
+                  <option value="600000">Below ₹6.0 Lakhs / year</option>
+                  <option value="800000">Below ₹8.0 Lakhs / year (AICTE / EWS ceiling)</option>
+                  <option value="1500000">Above ₹8.0 Lakhs / year (Merit-only)</option>
+                </select>
+              </div>
+
+              <!-- Gender -->
+              <div class="form-group" style="grid-column: 1 / -1; max-width: 320px;">
+                <label class="form-label" for="profileGender">
+                  Gender Preference
+                </label>
+                <select id="profileGender" class="form-control">
+                  <option value="Female">Female (Include Girls in STEM schemes)</option>
+                  <option value="Male">Male</option>
+                  <option value="Any">Any / Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="matcher-actions">
+              <button type="submit" class="btn-primary" style="padding: 12px 28px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Calculate Matching Scholarships
+              </button>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">
+                💡 Match scores are recalculated instantly without page reloads.
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scholarship Explorer & Multi-Filters Section -->
+    <section id="explorerSection" class="section-padding" style="background: var(--bg-main);">
+      <div class="container">
+        <div class="section-header" style="text-align: left; max-width: 100%; margin-bottom: 24px;">
+          <span class="section-tag">Live Discovery Portal</span>
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h2 class="section-title" style="margin-bottom: 4px;">Explore Scholarship Schemes</h2>
+              <p class="section-desc">Search across 100% genuine opportunities, verified government portals, and premier corporate CSR trusts.</p>
+            </div>
+            <button class="btn-outline" onclick="resetFilters()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Reset Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="explorer-bar">
+          <div class="search-input-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by scholarship title, provider (e.g. Reliance, AICTE, SSP), or tags...">
+          </div>
+
+          <div class="filter-row">
+            <!-- Course Filter -->
+            <select id="filterCourse" class="filter-select">
+              <option value="all">All Courses</option>
+              <option value="BCA">BCA</option>
+              <option value="B.Tech">B.Tech / BE</option>
+              <option value="B.Sc">B.Sc</option>
+              <option value="B.Com">B.Com</option>
+              <option value="MBBS">MBBS</option>
+              <option value="Diploma">Diploma</option>
+              <option value="Postgraduate">Postgraduate (MCA/MBA)</option>
+            </select>
+
+            <!-- State Filter -->
+            <select id="filterState" class="filter-select">
+              <option value="all">All States (Pan-India)</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+            </select>
+
+            <!-- Category Filter -->
+            <select id="filterCategory" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+              <option value="Minority">Minority</option>
+              <option value="Female">Female Only Schemes</option>
+              <option value="PwD">Differently-Abled (PwD)</option>
+            </select>
+
+            <!-- Income Filter -->
+            <select id="filterIncome" class="filter-select">
+              <option value="all">Any Income Limit</option>
+              <option value="250000">Max ₹2.5L / year</option>
+              <option value="500000">Max ₹5.0L / year</option>
+              <option value="800000">Max ₹8.0L / year</option>
+            </select>
+
+            <!-- Deadline Filter -->
+            <select id="filterDeadline" class="filter-select">
+              <option value="all">All Deadlines</option>
+              <option value="closing-soon">Closing Soon (&lt; 18 Days)</option>
+              <option value="this-month">Closing This Month</option>
+            </select>
+
+            <!-- Verification Filter -->
+            <select id="filterVerified" class="filter-select">
+              <option value="all">All Statuses</option>
+              <option value="verified-only">Verified Only</option>
+            </select>
+
+            <!-- Sort By -->
+            <div class="sort-container">
+              <label for="sortBySelect">Sort By:</label>
+              <select id="sortBySelect" class="filter-select" style="background: var(--bg-main);">
+                <option value="best-match">Best Match Score</option>
+                <option value="deadline-soon">Deadline Soonest</option>
+                <option value="highest-amount">Highest Amount (₹)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Counter -->
+        <div class="results-header">
+          <div id="resultsCount" class="results-count">
+            Loading scholarships...
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            ⚡ Direct application links redirect to official government & CSR portals.
+          </div>
+        </div>
+
+        <!-- Scholarship Cards Grid -->
+        <div id="scholarshipsGrid" class="scholarship-grid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Scholarship Assistant (AI Guidance) -->
+    <section id="assistant-section" class="section-padding" style="background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--blue-light); color: var(--blue);">AI Query Resolver</span>
+          <h2 class="section-title">Scholarship Assistant</h2>
+          <p class="section-desc">
+            Ask natural questions regarding eligibility requirements, document mandates, Karnataka SSP rules, or application guidance.
+          </p>
+        </div>
+
+        <div class="assistant-wrapper">
+          <!-- Assistant Left Sidebar (Prompt Suggestions) -->
+          <div class="assistant-sidebar">
+            <span class="assistant-badge">⚡ Instant AI Assistant</span>
+            <h4>Quick Questions</h4>
+            <p>Click any prompt chip to get immediate structured guidance:</p>
+
+            <div class="prompt-chips-label">Popular Topics</div>
+            <div class="prompt-chips">
+              <button class="chip-btn" onclick="sendAssistantQuery('Scholarships for BCA & B.Tech students?')">
+                🎓 Scholarships for BCA & B.Tech
+              </button>
+              <button class="chip-btn" onclick="sendAssistantQuery('How does SSP Karnataka post-matric work?')">
+                🏛️ Karnataka SSP Application Guide
+              </button>
+              <button class="chip-btn" onclick="sendAssistantQuery('What documents are needed for scholarship applications?')">
+                📋 Mandatory Document Checklist
+              </button>
+              <button class="chip-btn" onclick="sendAssistantQuery('Best scholarships for family income below 2.5 Lakhs?')">
+                💰 Income &lt; ₹2.5L Schemes
+              </button>
+              <button class="chip-btn" onclick="sendAssistantQuery('Exclusive scholarships for female students?')">
+                👩‍🎓 Exclusive Women in STEM Schemes
+              </button>
+              <button class="chip-btn" onclick="sendAssistantQuery('Can I apply for multiple scholarships?')">
+                ⚖️ Rules for Multiple Scholarships
+              </button>
+            </div>
+          </div>
+
+          <!-- Assistant Chat Area -->
+          <div class="assistant-chat">
+            <div id="chatMessages" class="chat-messages">
+              <!-- Initial bot message rendered by JS -->
+            </div>
+
+            <div class="chat-input-area">
+              <input type="text" id="assistantInput" class="chat-input" placeholder="Type your scholarship question (e.g. 'Can BCA students apply for Pragati?')...">
+              <button class="chat-send-btn" onclick="sendAssistantQuery()" title="Send query" aria-label="Send Query">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document Checklist Section -->
+    <section id="checklist-section" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--teal-light); color: var(--teal);">Application Readiness</span>
+          <h2 class="section-title">Essential Document Checklist</h2>
+          <p class="section-desc">
+            Keep these certified records ready before starting online applications to avoid verification delays or application rejection.
+          </p>
+        </div>
+
+        <div class="checklist-wrapper">
+          <div class="checklist-progress-box">
+            <div class="progress-info">
+              <h4>Readiness Tracker</h4>
+              <p id="checklistCompletedCount">0 of 8 documents ready</p>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-track">
+                <div id="checklistProgressFill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <div id="checklistPercentLabel" class="progress-percent-label">0% Ready</div>
+            </div>
+          </div>
+
+          <div id="checklistGrid" class="checklist-grid">
+            <!-- Checklist items rendered dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scholarship Insights Section -->
+    <section id="insights-section" class="section-padding" style="background: #FFFFFF; border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--pink-light); color: var(--pink);">Platform Analytics</span>
+          <h2 class="section-title">Scholarship Insights & Statistics</h2>
+          <p class="section-desc">
+            Real-time breakdown of funding opportunities, category allocations, and verified schemes currently open for registration.
+          </p>
+        </div>
+
+        <div class="insights-wrapper">
+          <div class="insights-grid">
+            <!-- Distribution by Category -->
+            <div class="insight-card">
+              <div class="insight-card-title">
+                <span>Distribution by Category</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+              </div>
+              <div id="categoryBars" class="chart-bar-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Verification & Trust Status -->
+            <div class="insight-card">
+              <div class="insight-card-title">
+                <span>Verification Ratio</span>
+                <span class="badge-verified">94.4% Official</span>
+              </div>
+              <div class="donut-container" style="margin-top: 12px;">
+                <svg class="donut-svg" viewBox="0 0 36 36">
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E2E8F0" stroke-width="4.5"/>
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10B981" stroke-width="4.5" stroke-dasharray="94, 100"/>
+                </svg>
+                <div class="donut-legend">
+                  <div class="legend-item">
+                    <span class="legend-dot" style="background: #10B981;"></span>
+                    <span>17 Verified Schemes</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-dot" style="background: #F59E0B;"></span>
+                    <span>1 In-Review Scheme</span>
+                  </div>
+                  <div class="legend-item" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">
+                    Updated for 2026-27
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Average Value Metric -->
+            <div class="insight-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Average Award Value</span>
+              <div id="statAvgAmount" style="font-size: 2.3rem; font-weight: 800; color: var(--primary); margin: 8px 0;">
+                ₹58,400
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Calculated across all listed government, corporate CSR, and merit-cum-means fellowships.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trust & Disclaimer Banner -->
+          <div class="trust-banner">
+            <div class="trust-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="trust-text">
+              <h5>Verification & Transparency Notice</h5>
+              <p>
+                ScholarMitra helps discover and compare scholarship opportunities. Always verify eligibility, deadlines and application details on the official scholarship website before applying. ScholarMitra does not charge fees or guarantee scholarship disbursement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scholarship Details Modal -->
+  <div id="detailsModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeDetailsModal()" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="detailsModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Redirection Safety Confirmation Modal -->
+  <div id="redirectModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-box" style="max-width: 500px;">
+      <div id="redirectModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 12px;">
+            <div class="brand-icon" style="width: 36px; height: 36px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">Scholar<span>Mitra</span></span>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            India's modern, explainable AI scholarship discovery portal for collegiate, technical, and professional education.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Key Portals</h5>
+          <ul class="footer-links">
+            <li><a href="https://scholarships.gov.in" target="_blank" rel="noopener">National Scholarship Portal (NSP)</a></li>
+            <li><a href="https://ssp.postmatric.karnataka.gov.in" target="_blank" rel="noopener">Karnataka SSP Portal</a></li>
+            <li><a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener">Maharashtra MahaDBT</a></li>
+            <li><a href="https://www.aicte-india.org" target="_blank" rel="noopener">AICTE Schemes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Platform Tools</h5>
+          <ul class="footer-links">
+            <li><a href="#matcher-section">Smart Profile Matcher</a></li>
+            <li><a href="#explorerSection">Scholarship Explorer</a></li>
+            <li><a href="#assistant-section">AI Assistant</a></li>
+            <li><a href="#checklist-section">Document Readiness</a></li>
+            <li><a href="#insights-section">Analytics & Insights</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Trust & Compliance</h5>
+          <ul class="footer-links">
+            <li><a href="#insights-section">Verification Standards</a></li>
+            <li><a href="#insights-section">Security & Anti-Fraud Notice</a></li>
+            <li><a href="#">Terms of Discovery</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 ScholarMitra. Designed for WebCraft Event. All rights reserved.</span>
+        <span>Empowering higher education through transparent AI matching.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
