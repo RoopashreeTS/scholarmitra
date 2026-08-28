@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ScholarMitra — AI Scholarship Discovery & Matching Platform
 
 ScholarMitra is a modern, transparent, and explainable scholarship discovery web platform designed for collegiate, technical, and postgraduate students across India.
@@ -77,3 +78,6 @@ scholarmitra/
 ├── test_build.py    # Automated test and validation script
 └── .gitignore       # Git ignore rules
 ```
+=======
+# scholarmitra
+>>>>>>> 1a9ae19c773b659a03228d273afd4be3918f45d6

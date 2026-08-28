@@ -1,36 +1,55 @@
-// ScholarMitra - Comprehensive Scholarship Database (WebCraft Competition Ready)
+// ==========================================================================
+// ScholarMitra - Comprehensive Verified Indian Scholarship Database
+// Production-Grade Dataset with Structured Criteria & Verification Metadata
+// ==========================================================================
+
 const SCHOLARSHIPS_DATA = [
   {
-    id: "nsp-post-matric",
-    title: "NSP Post-Matric Scholarship for Minorities",
-    provider: "Ministry of Minority Affairs (Govt. of India)",
+    id: "aicte-pragati-girls",
+    title: "AICTE Pragati Scholarship for Girl Students",
+    provider: "All India Council for Technical Education (AICTE)",
     providerType: "Government",
-    amount: 30000,
-    amountDisplay: "₹30,000 / year + Admission Fees",
-    deadline: "2026-09-20",
+    amount: 50000,
+    amountDisplay: "₹50,000 / year",
+    amountNote: "Covers college tuition, exam fees, and annual contingency books allowance",
+    deadline: "2026-09-30",
     verified: true,
-    category: ["Minority", "OBC", "General", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "MBBS", "Diploma", "MCA", "MBA"],
+    lastVerified: "August 2026",
+    officialDomain: "aicte-india.org",
+    portalName: "AICTE / National Scholarship Portal (NSP)",
+    officialUrl: "https://www.aicte-india.org/schemes/students-development-schemes/Pragati",
+    category: ["General", "OBC", "SC", "ST", "EWS", "Minority", "Single Girl Child"],
+    eligibleCourses: ["B.Tech / BE", "Diploma", "BCA", "MCA"],
     eligibleStates: ["All India"],
-    minPercentage: 50,
-    maxIncome: 200000,
-    maxIncomeDisplay: "₹2.0 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
+    minPercentage: 60,
+    maxIncome: 800000,
+    maxIncomeDisplay: "Below ₹8,00,000 / year",
+    gender: "Female",
+    yearOfStudy: ["1st Year", "2nd Year"],
+    overview: "A flagship Government of India scheme designed to empower young women pursuing technical degrees and diploma programs at AICTE-approved institutions across India. Awards ₹50,000 annually for up to 4 years.",
+    criteriaComparison: {
+      course: { required: "B.Tech / BE, Diploma, BCA, or MCA in AICTE-approved institution", minVal: "Technical Degree" },
+      academics: { required: "Minimum 60% marks in Class 12 / qualifying diploma exam", minVal: 60 },
+      income: { required: "Annual family income not exceeding ₹8,00,000", maxVal: 800000 },
+      category: { required: "All social categories eligible (Max 2 girls per family)", special: "Max 2 girl children per family" },
+      gender: { required: "Female students only", val: "Female" },
+      domicile: { required: "Citizen of India (All States)", val: "All India" }
+    },
     requiredDocs: [
-      "Aadhaar Card",
-      "Income Certificate (Issued by competent authority)",
-      "Minority Community Certificate",
-      "Previous Year Marks Card (Min 50%)",
-      "Bonafide Student Certificate",
-      "Fee Receipt of Current Year",
-      "Bank Passbook linked with Aadhaar"
+      "10th & 12th Standard Marksheet (Min 60%)",
+      "AICTE-approved College Admission Allotment Letter",
+      "Family Income Certificate (Issued by Tahsildar or higher)",
+      "Aadhaar Card & Bank Account linked with NPCI mapper",
+      "Tuition Fee Receipt of Current Academic Year",
+      "Parents' declaration stating maximum 2 girls in family"
     ],
-    overview: "Provides financial assistance to meritorious students belonging to economically weaker sections of minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Parsi) to pursue higher education.",
-    officialUrl: "https://scholarships.gov.in",
-    portalName: "National Scholarship Portal (NSP)",
-    badgeColor: "green",
-    tags: ["Government", "Minority", "Undergraduate", "Postgraduate"]
+    timeline: {
+      openDate: "01 August 2026",
+      lastDate: "30 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct Benefit Transfer (DBT) by December 2026"
+    },
+    tags: ["Government", "Women in STEM", "Technical", "AICTE"]
   },
   {
     id: "ssp-karnataka-postmatric",
@@ -38,30 +57,46 @@ const SCHOLARSHIPS_DATA = [
     provider: "Social Welfare & Backward Classes Dept, Govt. of Karnataka",
     providerType: "Government",
     amount: 45000,
-    amountDisplay: "₹25,000 - ₹45,000 / year (Fee Reimbursement + Maintenance)",
+    amountDisplay: "₹25,000 - ₹45,000 / year",
+    amountNote: "100% Tuition fee reimbursement + monthly maintenance allowance",
     deadline: "2026-09-12",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "ssp.postmatric.karnataka.gov.in",
+    portalName: "Karnataka State Scholarship Portal (SSP)",
+    officialUrl: "https://ssp.postmatric.karnataka.gov.in",
     category: ["SC", "ST", "OBC", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "Diploma", "MBBS", "MCA", "Postgraduate"],
+    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "Diploma", "MBBS", "MCA", "Postgraduate", "BA"],
     eligibleStates: ["Karnataka"],
     minPercentage: 50,
     maxIncome: 250000,
-    maxIncomeDisplay: "₹2.5 Lakhs / year",
+    maxIncomeDisplay: "Below ₹2,50,000 / year (OBC) / ₹2.5L-10L (SC/ST)",
     gender: "Any",
     yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
+    overview: "Flagship scholarship initiative by the Government of Karnataka offering full tuition fee waivers, hostel fee subsidies, and monthly maintenance stipends for resident students pursuing higher education.",
+    criteriaComparison: {
+      course: { required: "Any recognised Undergraduate, Engineering, Medical, or Diploma program in Karnataka", minVal: "Any Degree" },
+      academics: { required: "Minimum 50% in previous qualifying examination with no active backlogs", minVal: 50 },
+      income: { required: "Family income under ₹2,50,000/year (OBC/EWS) or ₹2.5L-10L (SC/ST)", maxVal: 250000 },
+      category: { required: "SC, ST, OBC (Cat-1, 2A, 2B, 3A, 3B), or EWS with valid RD barcode certificate", special: "Valid RD Certificate" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Permanent resident / Domicile of Karnataka", val: "Karnataka" }
+    },
     requiredDocs: [
-      "Aadhaar Card & RD Number",
-      "Valid Caste & Income Certificate (RD Number)",
-      "SSLC & PUC / 12th Marks Card",
-      "College Admission / Fee Receipt",
-      "Bonafide Certificate / Hosteller Certificate",
-      "Seeded Bank Account with NPCI / Aadhaar"
+      "Aadhaar Card & Student RD Number",
+      "Valid Caste & Income Certificate (RD Number barcode)",
+      "SSLC / 10th & PUC / 12th Marks Card",
+      "College Admission Allotment & Paid Fee Receipt",
+      "Bonafide Study Certificate from Principal / Dean",
+      "Aadhaar-seeded Bank Account linked to NPCI mapper"
     ],
-    overview: "Flagship scholarship program by the Government of Karnataka offering full/partial tuition fee reimbursement and monthly maintenance allowances for students pursuing higher studies in Karnataka.",
-    officialUrl: "https://ssp.postmatric.karnataka.gov.in",
-    portalName: "Karnataka State Scholarship Portal (SSP)",
-    badgeColor: "purple",
-    tags: ["Karnataka", "Government", "Fee Reimbursement", "State Quota"]
+    timeline: {
+      openDate: "15 July 2026",
+      lastDate: "12 September 2026",
+      verificationWindow: "September 2026",
+      disbursement: "Direct DBT into Aadhaar-seeded account"
+    },
+    tags: ["Karnataka", "State Quota", "Fee Reimbursement", "Government"]
   },
   {
     id: "reliance-foundation-ug",
@@ -69,61 +104,94 @@ const SCHOLARSHIPS_DATA = [
     provider: "Reliance Foundation",
     providerType: "Corporate CSR",
     amount: 200000,
-    amountDisplay: "Up to ₹2,00,000 over course duration",
+    amountDisplay: "Up to ₹2,00,000 Total",
+    amountNote: "Disbursed across the entire course duration + mentorship and leadership programs",
     deadline: "2026-09-30",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "scholarships.reliancefoundation.org",
+    portalName: "Reliance Foundation Portal",
+    officialUrl: "https://www.scholarships.reliancefoundation.org",
     category: ["General", "OBC", "SC", "ST", "EWS", "Minority", "PwD"],
     eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "MBBS"],
     eligibleStates: ["All India"],
     minPercentage: 60,
     maxIncome: 1500000,
-    maxIncomeDisplay: "₹15.0 Lakhs / year (Preference < ₹2.5L)",
+    maxIncomeDisplay: "Below ₹15,00,000 / year (Priority to < ₹2.5L)",
     gender: "Any",
     yearOfStudy: ["1st Year"],
+    overview: "A premier national undergraduate grant supporting 5,000 first-year college students across all streams. Offers financial grants, digital leadership training, and peer network opportunities throughout their degree.",
+    criteriaComparison: {
+      course: { required: "Full-time 1st year Undergraduate degree in any stream at a recognized Indian college", minVal: "1st Year UG" },
+      academics: { required: "Minimum 60% aggregate score in Class 12 Board examinations", minVal: 60 },
+      income: { required: "Family income under ₹15,00,000/year (Highest priority to income under ₹2.5L)", maxVal: 1500000 },
+      category: { required: "Open to all social categories & backgrounds", special: "Open Merit" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
     requiredDocs: [
       "Passport Size Photograph",
-      "Aadhaar Card",
-      "12th Grade Marksheet",
-      "Bonafide College Enrollment Letter",
-      "Family Income Proof (ITR / Salary Slip / Income Cert)",
-      "Disability Certificate (if applicable)"
+      "Aadhaar Card / Government Photo ID",
+      "Class 12th Board Official Marksheet",
+      "Bonafide College Enrollment Letter / Student ID Card",
+      "Family Income Proof (ITR / Salary Certificate / Tahsildar Certificate)",
+      "Online Aptitude Test Completion Record"
     ],
-    overview: "A prestigious scholarship supporting first-year undergraduate students with robust grants, leadership development programs, and peer mentorship throughout their degree.",
-    officialUrl: "https://www.scholarships.reliancefoundation.org",
-    portalName: "Reliance Foundation Portal",
-    badgeColor: "blue",
+    timeline: {
+      openDate: "01 August 2026",
+      lastDate: "30 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "November 2026"
+    },
     tags: ["Corporate CSR", "Merit-cum-Means", "Leadership", "First Year"]
   },
   {
-    id: "aicte-pragati-girls",
-    title: "AICTE Pragati Scholarship for Girl Students",
-    provider: "All India Council for Technical Education (AICTE)",
+    id: "nsp-post-matric",
+    title: "NSP Post-Matric Scholarship for Minorities",
+    provider: "Ministry of Minority Affairs (Govt. of India)",
     providerType: "Government",
-    amount: 50000,
-    amountDisplay: "₹50,000 / year (Contingency + College fees)",
-    deadline: "2026-09-08",
+    amount: 30000,
+    amountDisplay: "₹30,000 / year + Admission Fees",
+    amountNote: "Maintenance stipend + actual tuition fees subject to scheme ceilings",
+    deadline: "2026-09-20",
     verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS", "Minority", "Single Girl Child"],
-    eligibleCourses: ["B.Tech / BE", "Diploma", "BCA", "MCA"],
+    lastVerified: "August 2026",
+    officialDomain: "scholarships.gov.in",
+    portalName: "National Scholarship Portal (NSP)",
+    officialUrl: "https://scholarships.gov.in",
+    category: ["Minority", "OBC", "General", "EWS"],
+    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "MBBS", "Diploma", "MCA", "MBA"],
     eligibleStates: ["All India"],
-    minPercentage: 60,
-    maxIncome: 800000,
-    maxIncomeDisplay: "₹8.0 Lakhs / year",
-    gender: "Female",
-    yearOfStudy: ["1st Year", "2nd Year"],
+    minPercentage: 50,
+    maxIncome: 200000,
+    maxIncomeDisplay: "Below ₹2,00,000 / year",
+    gender: "Any",
+    yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
+    overview: "Provides financial aid to meritorious students belonging to economically weaker sections of notified minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Parsi) for higher education.",
+    criteriaComparison: {
+      course: { required: "Post-matriculation or technical / professional graduation courses in govt or recognized colleges", minVal: "Post-Matric" },
+      academics: { required: "Minimum 50% marks in the previous final examination", minVal: 50 },
+      income: { required: "Annual family income not exceeding ₹2,00,000 from all sources", maxVal: 200000 },
+      category: { required: "Minority community status (Muslim, Christian, Sikh, Buddhist, Jain, Parsi)", special: "Minority Community" },
+      gender: { required: "Open to all genders (30% earmarked for female students)", val: "Any" },
+      domicile: { required: "Indian citizen (All States & UTs)", val: "All India" }
+    },
     requiredDocs: [
-      "10th & 12th Standard Marksheet",
-      "AICTE-approved College Admission Allotment Letter",
-      "Family Income Certificate (Issued by Tahsildar or higher)",
-      "Aadhaar Card & Bank Account details",
-      "Tuition Fee Receipt",
-      "Parents' declaration of maximum 2 girls per family"
+      "Aadhaar Card",
+      "Self-Declaration / Certificate of Minority Community",
+      "Income Certificate from Competent Revenue Authority",
+      "Previous Academic Year Marksheet (Min 50%)",
+      "Bonafide Student Certificate from Institution",
+      "Fee Receipt of Current Year",
+      "Bank Account seeded with Aadhaar (DBT active)"
     ],
-    overview: "Designed to empower young women pursuing technical degrees and diploma programs at AICTE-approved institutions across India, offering ₹50,000 annually for up to 4 years.",
-    officialUrl: "https://www.aicte-india.org/schemes/students-development-schemes/Pragati",
-    portalName: "AICTE / NSP Portal",
-    badgeColor: "pink",
-    tags: ["Government", "Women in STEM", "Technical", "AICTE"]
+    timeline: {
+      openDate: "10 July 2026",
+      lastDate: "20 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct DBT into Aadhaar linked account"
+    },
+    tags: ["Government", "Minority", "Undergraduate", "Postgraduate"]
   },
   {
     id: "hdfc-parivartan-ecss",
@@ -132,59 +200,45 @@ const SCHOLARSHIPS_DATA = [
     providerType: "Corporate CSR",
     amount: 75000,
     amountDisplay: "₹35,000 - ₹75,000 / year",
+    amountNote: "Merit-cum-means assistance covering tuition and educational equipment",
     deadline: "2026-09-18",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "buddy4study.com",
+    portalName: "HDFC Parivartan / Buddy4Study Portal",
+    officialUrl: "https://www.buddy4study.com/page/hdfc-bank-parivartans-ecss-programme",
     category: ["General", "OBC", "SC", "ST", "EWS", "Minority"],
     eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "Diploma", "Postgraduate"],
     eligibleStates: ["All India"],
     minPercentage: 55,
     maxIncome: 250000,
-    maxIncomeDisplay: "₹2.5 Lakhs / year",
+    maxIncomeDisplay: "Below ₹2,50,000 / year",
     gender: "Any",
     yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
+    overview: "Aims to support students from underprivileged sections who are at risk of dropping out due to financial hardship or sudden personal crises, ensuring uninterrupted completion of degrees.",
+    criteriaComparison: {
+      course: { required: "Enrolled in standard Undergraduate, Technical, Professional, or Diploma degree", minVal: "Any Degree" },
+      academics: { required: "Minimum 55% marks in previous academic year", minVal: 55 },
+      income: { required: "Annual family income equal to or less than ₹2,50,000", maxVal: 250000 },
+      category: { required: "All categories eligible; priority to students facing personal or economic crisis", special: "Crisis & Low Income" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Indian national residing in India", val: "All India" }
+    },
     requiredDocs: [
       "Previous Academic Year Marksheet",
-      "Current Year Admission Proof (ID card / Admission Letter / Fee Receipt)",
+      "Current Year Admission Proof (ID Card / Admission Letter / Fee Receipt)",
       "Income Proof (Govt Issued Certificate / BPL Card / Salary Slip)",
       "Applicant Bank Account Passbook",
       "Aadhaar Card / Government Photo ID",
-      "Crisis Proof (if applying under crisis category)"
+      "Proof of Family Crisis (if applying under crisis category)"
     ],
-    overview: "Aims to support students from underprivileged sections who are at risk of dropping out due to financial hardship or sudden personal crises.",
-    officialUrl: "https://www.buddy4study.com/page/hdfc-bank-parivartans-ecss-programme",
-    portalName: "HDFC Parivartan / Buddy4Study",
-    badgeColor: "blue",
+    timeline: {
+      openDate: "15 July 2026",
+      lastDate: "18 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct transfer via bank NEFT"
+    },
     tags: ["Corporate CSR", "Crisis Relief", "Undergraduate", "Merit-cum-Means"]
-  },
-  {
-    id: "tata-pankh-scholarship",
-    title: "Tata Capital Pankh Scholarship Programme",
-    provider: "Tata Capital Limited",
-    providerType: "Corporate CSR",
-    amount: 50000,
-    amountDisplay: "Up to ₹50,000 (or 80% of course tuition fee)",
-    deadline: "2026-09-25",
-    verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "Diploma"],
-    eligibleStates: ["All India"],
-    minPercentage: 60,
-    maxIncome: 400000,
-    maxIncomeDisplay: "₹4.0 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year", "3rd Year"],
-    requiredDocs: [
-      "Photo Identity Proof (Aadhaar Card)",
-      "Income Proof issued by competent govt authority",
-      "Previous Qualifying Exam Marksheet (Min 60%)",
-      "Current Academic Year Fee Receipt",
-      "Bank Account Details of Applicant"
-    ],
-    overview: "Tata Capital initiative supporting deserving students pursuing general graduation, technical degrees, and diploma courses to ensure uninterrupted education.",
-    officialUrl: "https://www.tatacapital.com/csr",
-    portalName: "Tata Capital CSR Portal",
-    badgeColor: "orange",
-    tags: ["Corporate CSR", "Tata Group", "Undergraduate", "Fee Assistance"]
   },
   {
     id: "kotak-kanya-scholarship",
@@ -192,17 +246,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Kotak Education Foundation",
     providerType: "Trust / Foundation",
     amount: 150000,
-    amountDisplay: "₹1,50,000 / year until graduation",
+    amountDisplay: "₹1,50,000 / year",
+    amountNote: "Continuous annual grant until graduation covering tuition, hostel & study expenses",
     deadline: "2026-09-10",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "kotakeducation.org",
+    portalName: "Kotak Education Foundation Portal",
+    officialUrl: "https://kotakeducation.org/kotak-kanya-scholarship/",
     category: ["General", "OBC", "SC", "ST", "EWS", "Minority"],
     eligibleCourses: ["B.Tech / BE", "MBBS", "BCA", "Architecture", "Design", "Integrated Law (LLB)"],
     eligibleStates: ["All India"],
     minPercentage: 75,
     maxIncome: 600000,
-    maxIncomeDisplay: "₹6.0 Lakhs / year",
+    maxIncomeDisplay: "Below ₹6,00,000 / year",
     gender: "Female",
     yearOfStudy: ["1st Year"],
+    overview: "Provides substantial financial assistance of ₹1.5 Lakhs per year to meritorious girl students from low-income families pursuing professional degrees in top institutes.",
+    criteriaComparison: {
+      course: { required: "First-year admission to professional graduation programs (Engineering, MBBS, Law, Design)", minVal: "Professional Degree" },
+      academics: { required: "Minimum 75% aggregate marks in Class 12 board examination", minVal: 75 },
+      income: { required: "Annual family income not exceeding ₹6,00,000", maxVal: 600000 },
+      category: { required: "Open to all social categories", special: "Open Merit" },
+      gender: { required: "Female students only", val: "Female" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
     requiredDocs: [
       "Class 12 Marksheet (Min 75% score)",
       "College Admission Allotment Letter / Entrance Rank Card (JEE, NEET, CET)",
@@ -211,11 +279,59 @@ const SCHOLARSHIPS_DATA = [
       "Bank Account Details",
       "Fee Receipt from NAAC/NIRF accredited institution"
     ],
-    overview: "Provides substantial financial assistance of ₹1.5 Lakhs per year to meritorious girl students from low-income families pursuing professional degrees in top institutes.",
-    officialUrl: "https://kotakeducation.org/kotak-kanya-scholarship/",
-    portalName: "Kotak Education Foundation",
-    badgeColor: "pink",
+    timeline: {
+      openDate: "01 July 2026",
+      lastDate: "10 September 2026",
+      verificationWindow: "September 2026",
+      disbursement: "October 2026"
+    },
     tags: ["Foundation", "Women in STEM", "Professional Degree", "High Grant"]
+  },
+  {
+    id: "tata-pankh-scholarship",
+    title: "Tata Capital Pankh Scholarship Programme",
+    provider: "Tata Capital Limited",
+    providerType: "Corporate CSR",
+    amount: 50000,
+    amountDisplay: "Up to ₹50,000 / year",
+    amountNote: "Covers up to 80% of annual course tuition fees",
+    deadline: "2026-09-25",
+    verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "tatacapital.com",
+    portalName: "Tata Capital CSR Portal",
+    officialUrl: "https://www.tatacapital.com/csr",
+    category: ["General", "OBC", "SC", "ST", "EWS"],
+    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "Diploma"],
+    eligibleStates: ["All India"],
+    minPercentage: 60,
+    maxIncome: 400000,
+    maxIncomeDisplay: "Below ₹4,00,000 / year",
+    gender: "Any",
+    yearOfStudy: ["1st Year", "2nd Year", "3rd Year"],
+    overview: "Tata Capital CSR initiative supporting deserving students pursuing general graduation, technical degrees, and diploma courses to ensure uninterrupted completion of their education.",
+    criteriaComparison: {
+      course: { required: "Enrolled in Undergraduate (BCA, B.Tech, B.Sc, B.Com) or Diploma courses", minVal: "UG / Diploma" },
+      academics: { required: "Minimum 60% marks in the qualifying previous year examination", minVal: 60 },
+      income: { required: "Annual family income not exceeding ₹4,00,000", maxVal: 400000 },
+      category: { required: "Open to all social categories", special: "Open Merit" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
+    requiredDocs: [
+      "Photo Identity Proof (Aadhaar Card)",
+      "Income Proof issued by competent govt authority",
+      "Previous Qualifying Exam Marksheet (Min 60%)",
+      "Current Academic Year Fee Receipt",
+      "Bank Account Details of Applicant"
+    ],
+    timeline: {
+      openDate: "15 July 2026",
+      lastDate: "25 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "November 2026"
+    },
+    tags: ["Corporate CSR", "Tata Group", "Undergraduate", "Fee Assistance"]
   },
   {
     id: "infosys-stem-stars",
@@ -223,17 +339,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Infosys Foundation",
     providerType: "Corporate CSR",
     amount: 100000,
-    amountDisplay: "Up to ₹1,00,000 / year (Covers tuition, living & books)",
+    amountDisplay: "Up to ₹1,00,000 / year",
+    amountNote: "Covers tuition, living expenses, and laptop / study materials",
     deadline: "2026-09-28",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "infosys.com",
+    portalName: "Infosys Foundation Portal",
+    officialUrl: "https://www.infosys.com/infosys-foundation/stem-stars.html",
     category: ["General", "OBC", "SC", "ST", "EWS"],
     eligibleCourses: ["B.Tech / BE", "BCA", "MBBS", "B.Sc"],
     eligibleStates: ["All India"],
     minPercentage: 70,
     maxIncome: 800000,
-    maxIncomeDisplay: "₹8.0 Lakhs / year",
+    maxIncomeDisplay: "Below ₹8,00,000 / year",
     gender: "Female",
     yearOfStudy: ["1st Year"],
+    overview: "Encourages young women to excel in Science, Technology, Engineering, and Mathematics (STEM) by covering tuition, living expenses, and essential study equipment throughout their collegiate degree.",
+    criteriaComparison: {
+      course: { required: "First-year admission to STEM fields (Engineering, Computer Science, Medicine, Pure Science)", minVal: "STEM Fields" },
+      academics: { required: "Minimum 70% in Class 12 with PCM/PCB subjects", minVal: 70 },
+      income: { required: "Annual family income not exceeding ₹8,00,000", maxVal: 800000 },
+      category: { required: "Open to all categories", special: "Open Merit" },
+      gender: { required: "Female students only", val: "Female" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
     requiredDocs: [
       "Class 12 Passing Certificate & Scorecard",
       "JEE / State CET Scorecard & College Allotment letter",
@@ -241,11 +371,59 @@ const SCHOLARSHIPS_DATA = [
       "Government Photo ID & Address proof",
       "College Fee Structure document"
     ],
-    overview: "Encourages young women to excel in Science, Technology, Engineering, and Mathematics (STEM) by covering tuition, living expenses, and study materials.",
-    officialUrl: "https://www.infosys.com/infosys-foundation/stem-stars.html",
-    portalName: "Infosys Foundation Portal",
-    badgeColor: "purple",
+    timeline: {
+      openDate: "01 August 2026",
+      lastDate: "28 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct payment to student account"
+    },
     tags: ["Infosys", "STEM", "Women in Tech", "Excellence"]
+  },
+  {
+    id: "aicte-saksham-pwd",
+    title: "AICTE Saksham Scholarship for Differently-Abled",
+    provider: "AICTE, Ministry of Education",
+    providerType: "Government",
+    amount: 50000,
+    amountDisplay: "₹50,000 / year",
+    amountNote: "Continuous grant for up to 4 years for technical degree / diploma",
+    deadline: "2026-09-15",
+    verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "aicte-india.org",
+    portalName: "AICTE National Portal",
+    officialUrl: "https://www.aicte-india.org/schemes/students-development-schemes/Saksham",
+    category: ["PwD", "General", "OBC", "SC", "ST", "EWS"],
+    eligibleCourses: ["B.Tech / BE", "Diploma", "BCA", "MCA"],
+    eligibleStates: ["All India"],
+    minPercentage: 50,
+    maxIncome: 800000,
+    maxIncomeDisplay: "Below ₹8,00,000 / year",
+    gender: "Any",
+    yearOfStudy: ["1st Year", "2nd Year"],
+    overview: "Dedicated central government scheme to encourage differently-abled students with not less than 40% disability to pursue technical education with independence and confidence.",
+    criteriaComparison: {
+      course: { required: "Enrolled in 1st/2nd year Technical Degree or Diploma at AICTE approved college", minVal: "Technical Degree" },
+      academics: { required: "Minimum 50% in qualifying previous examination", minVal: 50 },
+      income: { required: "Annual family income under ₹8,00,000", maxVal: 800000 },
+      category: { required: "Differently-abled students (PwD with min 40% certified disability)", special: "PwD ≥ 40%" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
+    requiredDocs: [
+      "Disability Certificate (Min 40% disability certified by competent medical authority)",
+      "10th & 12th Marksheets",
+      "AICTE Institute Admission Letter",
+      "Family Income Certificate (< ₹8 LPA)",
+      "Aadhaar Card & Bank Passbook"
+    ],
+    timeline: {
+      openDate: "01 August 2026",
+      lastDate: "15 September 2026",
+      verificationWindow: "September 2026",
+      disbursement: "Direct DBT transfer"
+    },
+    tags: ["Government", "Differently-Abled (PwD)", "Technical", "Empowerment"]
   },
   {
     id: "ongc-merit-scholarship",
@@ -253,17 +431,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Oil and Natural Gas Corporation (ONGC)",
     providerType: "Government PSU",
     amount: 48000,
-    amountDisplay: "₹48,000 / year (₹4,000 per month)",
+    amountDisplay: "₹48,000 / year",
+    amountNote: "₹4,000 per month stipend throughout standard degree duration",
     deadline: "2026-10-15",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "ongcscholar.org",
+    portalName: "ONGC Scholar Portal",
+    officialUrl: "https://ongcscholar.org",
     category: ["SC", "ST", "OBC"],
     eligibleCourses: ["B.Tech / BE", "MBBS", "MBA", "M.Sc"],
     eligibleStates: ["All India"],
     minPercentage: 60,
     maxIncome: 200000,
-    maxIncomeDisplay: "₹2.0 Lakhs / year",
+    maxIncomeDisplay: "Below ₹2,00,000 / year",
     gender: "Any",
     yearOfStudy: ["1st Year"],
+    overview: "ONGC Foundation grants financial support to meritorious students from marginalized communities enrolled in full-time engineering, medicine, and management programs across India.",
+    criteriaComparison: {
+      course: { required: "First-year full-time Engineering (B.Tech), MBBS, MBA, or Master in Geosciences", minVal: "Professional Degree" },
+      academics: { required: "Minimum 60% marks in Class 12 / qualifying graduation", minVal: 60 },
+      income: { required: "Annual family income not exceeding ₹2,00,000", maxVal: 200000 },
+      category: { required: "Must belong to SC, ST, or OBC category with valid certificate", special: "SC / ST / OBC" },
+      gender: { required: "Open to all genders (50% earmarked for female students)", val: "Any" },
+      domicile: { required: "Indian citizen (All States)", val: "All India" }
+    },
     requiredDocs: [
       "Certified copy of Caste Certificate",
       "Proof of Annual Family Income",
@@ -272,41 +464,13 @@ const SCHOLARSHIPS_DATA = [
       "Bank Account Details (ECS Mandate Form)",
       "PAN Card / Aadhaar Card"
     ],
-    overview: "ONGC Foundation grants financial support to meritorious students from marginalized communities enrolled in full-time engineering, medicine, and management programs.",
-    officialUrl: "https://ongcscholar.org",
-    portalName: "ONGC Scholar Portal",
-    badgeColor: "green",
+    timeline: {
+      openDate: "15 August 2026",
+      lastDate: "15 October 2026",
+      verificationWindow: "November 2026",
+      disbursement: "Direct ECS transfer"
+    },
     tags: ["PSU", "Merit-cum-Means", "SC/ST/OBC", "Engineering & Medicine"]
-  },
-  {
-    id: "aicte-saksham-pwd",
-    title: "AICTE Saksham Scholarship for Differently-Abled",
-    provider: "AICTE, Ministry of Education",
-    providerType: "Government",
-    amount: 50000,
-    amountDisplay: "₹50,000 / year throughout course",
-    deadline: "2026-09-15",
-    verified: true,
-    category: ["PwD", "General", "OBC", "SC", "ST", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "Diploma", "BCA", "MCA"],
-    eligibleStates: ["All India"],
-    minPercentage: 50,
-    maxIncome: 800000,
-    maxIncomeDisplay: "₹8.0 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year"],
-    requiredDocs: [
-      "Disability Certificate (Min 40% disability certified by competent medical authority)",
-      "10th & 12th Marksheets",
-      "AICTE Institute Admission Letter",
-      "Family Income Certificate (< ₹8 LPA)",
-      "Aadhaar Card & Bank Passbook"
-    ],
-    overview: "Dedicated scheme to encourage differently-abled students with not less than 40% disability to pursue technical education with self-reliance.",
-    officialUrl: "https://www.aicte-india.org/schemes/students-development-schemes/Saksham",
-    portalName: "AICTE National Portal",
-    badgeColor: "teal",
-    tags: ["Government", "Differently-Abled (PwD)", "Technical", "Empowerment"]
   },
   {
     id: "central-sector-csss",
@@ -314,17 +478,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Department of Higher Education (MHRD)",
     providerType: "Government",
     amount: 20000,
-    amountDisplay: "₹12,000 / year (UG) to ₹20,000 / year (PG)",
+    amountDisplay: "₹12,000 - ₹20,000 / year",
+    amountNote: "₹12,000/yr for 3 years UG, ₹20,000/yr for PG studies",
     deadline: "2026-10-05",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "scholarships.gov.in",
+    portalName: "National Scholarship Portal",
+    officialUrl: "https://scholarships.gov.in",
     category: ["General", "OBC", "SC", "ST", "EWS"],
     eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "MBBS", "MCA", "MBA"],
     eligibleStates: ["All India"],
     minPercentage: 80,
     maxIncome: 450000,
-    maxIncomeDisplay: "₹4.5 Lakhs / year",
+    maxIncomeDisplay: "Below ₹4,50,000 / year",
     gender: "Any",
     yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
+    overview: "For meritorious students scoring above the 80th percentile in their relevant stream in Class 12 board examinations to support their day-to-day college expenses.",
+    criteriaComparison: {
+      course: { required: "Regular full-time undergraduate or postgraduate degree in recognized college", minVal: "Regular Degree" },
+      academics: { required: "Above 80th percentile in relevant stream in Class 12 Board exam", minVal: 80 },
+      income: { required: "Annual family income not exceeding ₹4,50,000", maxVal: 450000 },
+      category: { required: "All categories eligible (50% reservation as per national norms)", special: "Top 20th Percentile" },
+      gender: { required: "Open to all genders (50% earmarked for girls)", val: "Any" },
+      domicile: { required: "Indian national", val: "All India" }
+    },
     requiredDocs: [
       "Class 12th Board Scorecard (Top 20th percentile)",
       "Income Certificate by Revenue Official",
@@ -332,41 +510,13 @@ const SCHOLARSHIPS_DATA = [
       "Aadhaar Card",
       "Aadhaar-seeded Bank Account Passbook"
     ],
-    overview: "For meritorious students scoring above the 80th percentile in relevant stream in Class 12 board examinations to support their day-to-day college expenses.",
-    officialUrl: "https://scholarships.gov.in",
-    portalName: "National Scholarship Portal",
-    badgeColor: "purple",
+    timeline: {
+      openDate: "01 August 2026",
+      lastDate: "05 October 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct DBT payment"
+    },
     tags: ["Central Govt", "Top Percentile", "Board Toppers", "All Streams"]
-  },
-  {
-    id: "vidyasaarathi-acc-cement",
-    title: "ACC Vidyasaarathi Higher Education Scholarship",
-    provider: "ACC Limited & Vidyasaarathi",
-    providerType: "Corporate CSR",
-    amount: 40000,
-    amountDisplay: "₹40,000 / year",
-    deadline: "2026-09-14",
-    verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "Diploma", "Postgraduate"],
-    eligibleStates: ["All India"],
-    minPercentage: 60,
-    maxIncome: 500000,
-    maxIncomeDisplay: "₹5.0 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
-    requiredDocs: [
-      "Aadhaar Card & Address Proof",
-      "Class 10th & 12th Marksheet",
-      "Current Year College Fee Receipt",
-      "Income Certificate from Govt Officer",
-      "College ID Card"
-    ],
-    overview: "Facilitated by ACC Cements through NSDL Vidyasaarathi platform to support deserving undergraduate engineering and science students.",
-    officialUrl: "https://www.vidyasaarathi.co.in",
-    portalName: "Vidyasaarathi Portal",
-    badgeColor: "orange",
-    tags: ["NSDL", "Corporate CSR", "Undergraduate", "Direct Bank Transfer"]
   },
   {
     id: "santoor-womens-scholarship",
@@ -374,17 +524,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Wipro Consumer Care and Wipro Cares",
     providerType: "Corporate CSR",
     amount: 24000,
-    amountDisplay: "₹24,000 / year (₹72,000 for 3 years)",
+    amountDisplay: "₹24,000 / year",
+    amountNote: "Total ₹72,000 for 3 years standard undergraduate graduation",
     deadline: "2026-09-05",
     verified: true,
+    lastVerified: "August 2026",
+    officialDomain: "santoorscholarship.com",
+    portalName: "Santoor Official Portal",
+    officialUrl: "https://www.santoorscholarship.com",
     category: ["General", "OBC", "SC", "ST", "EWS"],
     eligibleCourses: ["BCA", "B.Sc", "B.Com", "BA", "B.Tech / BE", "Diploma"],
     eligibleStates: ["Karnataka", "Andhra Pradesh", "Telangana", "Chhattisgarh"],
     minPercentage: 60,
     maxIncome: 300000,
-    maxIncomeDisplay: "₹3.0 Lakhs / year",
+    maxIncomeDisplay: "Below ₹3,00,000 / year",
     gender: "Female",
     yearOfStudy: ["1st Year"],
+    overview: "Dedicated to young women from underprivileged backgrounds who have completed schooling from government schools/colleges to pursue higher graduation.",
+    criteriaComparison: {
+      course: { required: "Enrolled in 1st year full-time undergraduate degree program", minVal: "1st Year UG" },
+      academics: { required: "Passed 10th & 12th from government school/college with min 60%", minVal: 60 },
+      income: { required: "Annual family income not exceeding ₹3,00,000", maxVal: 300000 },
+      category: { required: "All categories eligible; must have govt school background", special: "Govt School Alum" },
+      gender: { required: "Female students only", val: "Female" },
+      domicile: { required: "Resident of Karnataka, Andhra Pradesh, Telangana, or Chhattisgarh", val: "Karnataka / AP / TS" }
+    },
     requiredDocs: [
       "10th Standard Marks Card (State Board)",
       "12th Standard / Inter Marks Card",
@@ -392,102 +556,13 @@ const SCHOLARSHIPS_DATA = [
       "Aadhaar Card / Voter ID",
       "Bank Account Details"
     ],
-    overview: "Dedicated to young women from underprivileged backgrounds who have completed schooling from government schools/colleges to pursue higher graduation.",
-    officialUrl: "https://www.santoorscholarship.com",
-    portalName: "Santoor Official Portal",
-    badgeColor: "pink",
+    timeline: {
+      openDate: "01 July 2026",
+      lastDate: "05 September 2026",
+      verificationWindow: "September 2026",
+      disbursement: "Direct bank transfer"
+    },
     tags: ["Wipro Cares", "Women Empowerment", "State Specific", "Undergraduate"]
-  },
-  {
-    id: "pmss-ex-servicemen",
-    title: "Prime Minister’s Scholarship Scheme (PMSS)",
-    provider: "Kendriya Sainik Board, Ministry of Defence",
-    providerType: "Government",
-    amount: 36000,
-    amountDisplay: "₹30,000/yr (Boys) & ₹36,000/yr (Girls)",
-    deadline: "2026-10-20",
-    verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS", "Defence Quota"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "MBBS", "B.Sc", "MCA", "MBA"],
-    eligibleStates: ["All India"],
-    minPercentage: 60,
-    maxIncome: null,
-    maxIncomeDisplay: "No Family Income Ceiling",
-    gender: "Any",
-    yearOfStudy: ["1st Year"],
-    requiredDocs: [
-      "Ex-Servicemen ESM Certificate / Serving Certificate",
-      "PPO / Discharge Book copy",
-      "MEQ (Minimum Educational Qualification) 12th/Diploma Marksheet (Min 60%)",
-      "Bonafide Certificate from College / University",
-      "Aadhaar Card & Bank Account linked details"
-    ],
-    overview: "Encourages higher technical and professional education for the dependent wards and widows of Central Armed Police Forces, Assam Rifles & Defence personnel.",
-    officialUrl: "https://ksb.gov.in/pm-scholarship.htm",
-    portalName: "Kendriya Sainik Board (KSB)",
-    badgeColor: "blue",
-    tags: ["Defence Wards", "Central Govt", "Technical Courses", "Professional"]
-  },
-  {
-    id: "mahadbt-postmatric",
-    title: "Maharashtra MahaDBT Post-Matric Scholarship",
-    provider: "Government of Maharashtra (OBC, SEBC, VJNT & Social Justice)",
-    providerType: "Government",
-    amount: 40000,
-    amountDisplay: "100% Tuition Fee + Exam Fee + Maintenance",
-    deadline: "2026-09-30",
-    verified: true,
-    category: ["SC", "ST", "OBC", "EWS", "Minority"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "MBBS", "Diploma", "Postgraduate"],
-    eligibleStates: ["Maharashtra"],
-    minPercentage: 50,
-    maxIncome: 250000,
-    maxIncomeDisplay: "₹2.5 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
-    requiredDocs: [
-      "Domicile Certificate of Maharashtra",
-      "Caste Certificate & Caste Validity Certificate",
-      "Income Certificate issued by Tehsildar",
-      "CAP Allotment Letter / College Admission receipt",
-      "HSC / Previous year Marksheets",
-      "Aadhaar seeded bank account proof"
-    ],
-    overview: "Official scholarship initiative by Maharashtra Government providing complete fee waivers and monthly living assistance for resident students.",
-    officialUrl: "https://mahadbt.maharashtra.gov.in",
-    portalName: "MahaDBT State Portal",
-    badgeColor: "purple",
-    tags: ["Maharashtra", "State Govt", "Full Fee Waiver", "MahaDBT"]
-  },
-  {
-    id: "jindal-foundation-merit",
-    title: "Sitaram Jindal Foundation Scholarship Scheme",
-    provider: "Sitaram Jindal Foundation",
-    providerType: "Trust / Foundation",
-    amount: 38400,
-    amountDisplay: "₹2,500 - ₹3,200 / month (₹38,400 / yr)",
-    deadline: "2026-11-30",
-    verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS", "Minority", "PwD"],
-    eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BA", "MBBS", "Diploma", "MCA", "MBA"],
-    eligibleStates: ["All India"],
-    minPercentage: 65,
-    maxIncome: 400000,
-    maxIncomeDisplay: "₹4.0 Lakhs / year",
-    gender: "Any",
-    yearOfStudy: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Final Year"],
-    requiredDocs: [
-      "Photocopy of SSLC / 10th & 12th Marks Card",
-      "Income Certificate from Sub-Divisional Magistrate / Tehsildar",
-      "Certificate of Fees paid / Fee receipt",
-      "Certificate regarding hostel stay (if applicable)",
-      "Disability / Ex-servicemen Certificate (if applicable)"
-    ],
-    overview: "Philanthropic scholarship providing monthly aid to poor students pursuing undergraduate, post-graduate, engineering, medical, and diploma courses without discrimination.",
-    officialUrl: "https://www.sitaramjindalfoundation.org/scholarships.php",
-    portalName: "Sitaram Jindal Foundation",
-    badgeColor: "green",
-    tags: ["Trust", "Monthly Stipend", "All Streams", "Pan-India"]
   },
   {
     id: "keep-india-smiling-colgate",
@@ -495,17 +570,31 @@ const SCHOLARSHIPS_DATA = [
     provider: "Colgate-Palmolive (India) Limited",
     providerType: "Corporate CSR",
     amount: 30000,
-    amountDisplay: "₹30,000 / year for 3 - 4 years",
+    amountDisplay: "₹30,000 / year",
+    amountNote: "Annual grant for 3-4 years for undergraduate and professional courses",
     deadline: "2026-09-22",
     verified: false,
+    lastVerified: "Verification In Progress",
+    officialDomain: "colgate.com",
+    portalName: "Colgate CSR Portal",
+    officialUrl: "https://www.colgate.com/en-in/scholarship",
     category: ["General", "OBC", "SC", "ST", "EWS"],
     eligibleCourses: ["B.Tech / BE", "BCA", "B.Sc", "B.Com", "BDS", "Diploma"],
     eligibleStates: ["All India"],
     minPercentage: 60,
     maxIncome: 500000,
-    maxIncomeDisplay: "₹5.0 Lakhs / year",
+    maxIncomeDisplay: "Below ₹5,00,000 / year",
     gender: "Any",
     yearOfStudy: ["1st Year"],
+    overview: "Aims to provide foundational support to individuals who are deserving and meritorious but may lack the financial resources to pursue their educational dreams.",
+    criteriaComparison: {
+      course: { required: "Enrolled in 1st year Undergraduate / Vocational degree", minVal: "1st Year UG" },
+      academics: { required: "Minimum 60% in Class 12 board examination", minVal: 60 },
+      income: { required: "Annual family income not exceeding ₹5,00,000", maxVal: 500000 },
+      category: { required: "Open to all categories", special: "Open Merit" },
+      gender: { required: "Open to all genders", val: "Any" },
+      domicile: { required: "Indian national", val: "All India" }
+    },
     requiredDocs: [
       "Passport size photo",
       "Valid ID proof (Aadhaar / PAN)",
@@ -513,41 +602,13 @@ const SCHOLARSHIPS_DATA = [
       "Class 12th scorecard (Min 60%)",
       "Fee receipt / College admission letter"
     ],
-    overview: "Aims to provide foundational support to individuals who are deserving & meritorious but may lack the resources to pursue their educational dreams.",
-    officialUrl: "https://www.colgate.com/en-in/scholarship",
-    portalName: "Colgate CSR Portal",
-    badgeColor: "orange",
+    timeline: {
+      openDate: "15 July 2026",
+      lastDate: "22 September 2026",
+      verificationWindow: "October 2026",
+      disbursement: "Direct payment to student"
+    },
     tags: ["Corporate CSR", "Undergraduate", "Under Verification", "Colgate"]
-  },
-  {
-    id: "loreal-women-science",
-    title: "L'Oréal India For Young Women In Science",
-    provider: "L'Oréal India CSR",
-    providerType: "Corporate CSR",
-    amount: 250000,
-    amountDisplay: "₹2,50,000 total (₹62,500 / year)",
-    deadline: "2026-09-17",
-    verified: true,
-    category: ["General", "OBC", "SC", "ST", "EWS"],
-    eligibleCourses: ["B.Tech / BE", "MBBS", "B.Sc", "Pure Science", "Biotechnology"],
-    eligibleStates: ["All India"],
-    minPercentage: 85,
-    maxIncome: 600000,
-    maxIncomeDisplay: "₹6.0 Lakhs / year",
-    gender: "Female",
-    yearOfStudy: ["1st Year"],
-    requiredDocs: [
-      "Class 10th & 12th Scorecard (Min 85% in PCM/PCB)",
-      "Proof of admission in science/tech/medical college",
-      "Family Income proof issued by Govt Authority",
-      "Aadhaar Card",
-      "Statement of Purpose / Essay"
-    ],
-    overview: "Prestigious award for young women students who have passed Class 12 with stellar academic record in science to pursue graduation in scientific fields.",
-    officialUrl: "https://www.loreal.com/en/india/articles/commitments/for-young-women-in-science/",
-    portalName: "L'Oréal Foundation Portal",
-    badgeColor: "pink",
-    tags: ["Women in Science", "High Merit (85%+)", "Prestige Award", "Research"]
   }
 ];
 
@@ -555,112 +616,156 @@ const SCHOLARSHIPS_DATA = [
 const REQUIRED_DOCUMENTS_MASTER = [
   {
     id: "doc-aadhaar",
-    name: "Aadhaar Card / National Photo ID",
-    category: "Identity",
-    description: "Must have active mobile number linked & NPCI / bank seeding completed.",
-    tips: "Ensure name and Date of Birth match Class 10 records exactly.",
-    requiredBy: ["All Schemes", "NSP", "SSP Karnataka", "AICTE", "CSR"]
+    name: "Aadhaar Card (NPCI Bank-Seeded)",
+    category: "Identity & Verification",
+    description: "Active Aadhaar with linked mobile number and NPCI mapper mapping for Direct Benefit Transfer (DBT).",
+    tips: "Ensure student name and Date of Birth match Class 10 records exactly.",
+    requiredBy: "All Government & CSR Schemes",
+    officialCheck: "Verify via UIDAI Portal"
   },
   {
     id: "doc-income",
     name: "Family Income Certificate",
-    category: "Income",
-    description: "Official certificate issued by Tahsildar / Revenue Authority (RD Number in Karnataka).",
-    tips: "Must be within validity period (usually 1-3 years from issue date).",
-    requiredBy: ["SSP Karnataka", "NSP", "HDFC", "Tata Pankh", "AICTE"]
+    category: "Income Verification",
+    description: "Valid certificate issued by Tahsildar / Revenue Authority (RD Number in Karnataka).",
+    tips: "Must be within validity period (usually 1-3 years from date of issuance).",
+    requiredBy: "SSP, NSP, HDFC, AICTE, Tata Pankh",
+    officialCheck: "Check RD / Barcode validity"
   },
   {
     id: "doc-caste",
     name: "Caste / Category / Minority Certificate",
-    category: "Category",
-    description: "SC/ST/OBC/EWS/Minority proof issued by authorized revenue department.",
-    tips: "Keep digital barcode or RD certificate number ready for quick verification.",
-    requiredBy: ["SSP", "MahaDBT", "NSP Minority", "ONGC", "AICTE Saksham"]
+    category: "Category Proof",
+    description: "SC, ST, OBC, EWS, or Minority certificate issued by competent state authority.",
+    tips: "Ensure digital barcode or certificate number is clearly visible on the scan.",
+    requiredBy: "SSP Karnataka, MahaDBT, NSP Minority, ONGC",
+    officialCheck: "Digital barcode required"
   },
   {
     id: "doc-marks",
     name: "Previous Year Marks Card / Grade Sheet",
-    category: "Academics",
-    description: "10th, 12th (PUC) or previous semester marksheets attested by college.",
+    category: "Academic Records",
+    description: "10th, 12th (PUC) or latest semester marks sheet stamped/attested by college authority.",
     tips: "Clear scan of original marksheet; avoid photocopies without college stamp.",
-    requiredBy: ["All Schemes", "Central Sector CSSS", "Kotak Kanya", "Reliance"]
+    requiredBy: "All Merit & Central Sector Schemes",
+    officialCheck: "Minimum marks threshold"
   },
   {
     id: "doc-bonafide",
-    name: "Bonafide Student Certificate / Study Certificate",
-    category: "College",
-    description: "Official certificate signed by Principal/Dean with college seal and current year admission date.",
+    name: "Bonafide Student Certificate",
+    category: "College Records",
+    description: "Study certificate signed by Principal/Dean certifying current academic enrollment for 2026-27.",
     tips: "Ensure current academic year (2026-27) is explicitly printed.",
-    requiredBy: ["NSP", "SSP Karnataka", "AICTE Pragati", "Tata Pankh"]
+    requiredBy: "NSP, SSP Karnataka, AICTE Pragati, Reliance",
+    officialCheck: "College seal & Principal signature"
   },
   {
     id: "doc-feereceipt",
     name: "College Fee Structure & Paid Fee Receipt",
-    category: "College",
-    description: "Official fee breakdown with challan number / online payment transaction ID.",
+    category: "Financial Proof",
+    description: "Official fee breakdown with challan number or online payment transaction reference ID.",
     tips: "Required for fee reimbursement claims and tuition grants.",
-    requiredBy: ["SSP", "HDFC Parivartan", "AICTE", "Vidyasaarathi"]
+    requiredBy: "SSP Karnataka, HDFC Parivartan, AICTE",
+    officialCheck: "Transaction ID / Challan No"
   },
   {
     id: "doc-bank",
-    name: "Aadhaar-Seeded Bank Passbook / Mandate Form",
-    category: "Banking",
-    description: "Passbook front page showing Account No, IFSC code, and student's name.",
-    tips: "Account MUST be in the student's name and linked with Aadhaar NPCI mapper for Direct Benefit Transfer (DBT).",
-    requiredBy: ["All Schemes", "Govt DBT", "NSP", "SSP"]
+    name: "Aadhaar-Seeded Bank Passbook",
+    category: "Disbursement Details",
+    description: "Passbook front page showing Account No, IFSC code, and student's full name.",
+    tips: "Account MUST be in the student's own name and active on NPCI DBT mapper.",
+    requiredBy: "All Government & Trust Schemes",
+    officialCheck: "Account in student's name"
   },
   {
     id: "doc-photo",
     name: "Passport-Size Photograph & Signature",
-    category: "Identity",
+    category: "Identity & Verification",
     description: "Recent color photograph on light background (< 200KB) and clear signature scan.",
     tips: "Maintain standard passport 35mm x 45mm proportions in JPG format.",
-    requiredBy: ["All Schemes"]
+    requiredBy: "All Application Portals",
+    officialCheck: "< 200KB JPG format"
   }
 ];
 
-// Pre-built assistant FAQ intelligence
+// Conversational AI Knowledge Base with Known / Verified / Source structure
 const ASSISTANT_KNOWLEDGE_BASE = [
   {
     keywords: ["bca", "computer", "b.tech", "engineering", "tech", "cs", "it"],
-    title: "Scholarships for BCA / B.Tech / Computer Science Students",
-    response: "For Computer Applications (BCA) and Technical degrees (B.Tech/BE), you have multiple high-value options:\n\n1. **AICTE Pragati Scholarship**: ₹50,000/yr for female technical students.\n2. **Reliance Foundation UG Scholarship**: Up to ₹2,00,000 for 1st-year students with min 60%.\n3. **HDFC Bank Parivartan's ECSS**: Up to ₹75,000 for students with family income under ₹2.5L.\n4. **Infosys Foundation STEM Stars**: Up to ₹1,00,000/yr for girls in STEM.\n5. **Karnataka SSP Post-Matric**: Full fee reimbursement for Karnataka residents (SC/ST/OBC/EWS).\n\nUse the **Find My Scholarships** profile form above to calculate your exact percentage match!",
-    suggestedQuery: "What documents are needed for B.Tech scholarships?"
+    title: "Scholarships for BCA & B.Tech Students",
+    knownFacts: [
+      "AICTE Pragati provides ₹50,000/yr for female technical students.",
+      "Reliance Foundation offers up to ₹2,00,000 for 1st-year students with min 60% in Class 12.",
+      "Karnataka SSP provides full/partial tuition fee reimbursement for Karnataka residents (SC/ST/OBC/EWS).",
+      "HDFC Parivartan ECSS offers up to ₹75,000 for family income under ₹2.5 Lakhs."
+    ],
+    needsVerification: "Check whether your institution is AICTE-approved for government schemes.",
+    officialSource: "AICTE Portal (aicte-india.org) & NSP (scholarships.gov.in)",
+    suggestedAction: "Go to Explorer and filter by course 'BCA' or 'B.Tech'."
   },
   {
     keywords: ["ssp", "karnataka", "state scholarship portal", "rd number"],
     title: "Karnataka State Scholarship Portal (SSP) Guidance",
-    response: "The **Karnataka SSP Post-Matric** is open for 2026-27 for SC, ST, OBC, EWS, and minority students enrolled in Karnataka institutions.\n\n**Key Requirements:**\n• Domicile in Karnataka\n• Valid RD Number for Caste & Income Certificate (< ₹2.5 Lakhs)\n• Aadhaar seeded to bank account via NPCI mapper\n• College bonafide registration\n\n**Benefits:** Covers full tuition fee reimbursement + annual maintenance allowance directly credited to your DBT account.",
-    suggestedQuery: "How to check Aadhaar-bank seeding for SSP?"
+    knownFacts: [
+      "Open for 2026-27 academic year for Karnataka domicile students.",
+      "Requires a valid RD Number for Caste and Income certificates (< ₹2.5L).",
+      "Disbursement is made directly through Aadhaar-seeded bank accounts (DBT).",
+      "Covers tuition fee reimbursement plus annual maintenance stipend."
+    ],
+    needsVerification: "Verify your bank account is mapped on the NPCI Aadhaar mapper.",
+    officialSource: "Karnataka SSP Portal (ssp.postmatric.karnataka.gov.in)",
+    suggestedAction: "Check our Document Checklist to ensure your RD Number is ready."
   },
   {
     keywords: ["documents", "doc", "checklist", "certificate", "aadhaar", "income cert"],
     title: "Mandatory Document Checklist for Scholarship Applications",
-    response: "To avoid application rejections, keep these 7 core documents ready in PDF/JPG (< 500KB):\n\n1. **Aadhaar Card** (active mobile linked)\n2. **Income Certificate** (< ₹2.5L / ₹4L / ₹8L depending on scheme)\n3. **Caste / Category Certificate** (if claiming reservation)\n4. **Previous Year Grade Sheet / 10th & 12th Marks Card**\n5. **College Bonafide / Admission Letter** for 2026-27\n6. **College Fee Receipt**\n7. **Aadhaar-Seeded Bank Passbook** in student's name\n\nTrack your readiness in our interactive **Document Checklist** section!",
-    suggestedQuery: "What is NPCI bank seeding?"
+    knownFacts: [
+      "Aadhaar Card with active mobile link & NPCI bank seeding.",
+      "Current valid Income Certificate issued by Revenue Authority.",
+      "Caste / Category Certificate with digital barcode (if claiming reservation).",
+      "Previous year original marks card attested by college.",
+      "College Bonafide Certificate for 2026-27."
+    ],
+    needsVerification: "Ensure Income Certificate is not older than allowed validity (usually 1-3 years).",
+    officialSource: "National Scholarship Portal Guidelines (scholarships.gov.in)",
+    suggestedAction: "Open 'My Documents' in the top menu to track your 8-document readiness."
   },
   {
     keywords: ["income", "2.5", "below 2.5", "low income", "poor", "financial", "family income"],
-    title: "Best Scholarships for Family Income < ₹2.5 Lakhs / Year",
-    response: "If your annual family income is under ₹2.5 Lakhs, you qualify for top priority government and CSR programs:\n\n• **Karnataka SSP Post-Matric**: Max fee reimbursement (Govt)\n• **NSP Post-Matric for Minorities**: ₹30,000/yr + fee aid\n• **HDFC Bank Parivartan ECSS**: Up to ₹75,000/yr\n• **Tata Capital Pankh Scholarship**: Up to ₹50,000\n• **Santoor Women’s Scholarship**: ₹24,000/yr\n\nMake sure your revenue-issued Income Certificate is updated for the current financial year.",
-    suggestedQuery: "Can I apply for both Govt and CSR scholarships?"
+    title: "Scholarships for Family Income Below ₹2.5 Lakhs",
+    knownFacts: [
+      "Karnataka SSP Post-Matric: Max tuition fee reimbursement for OBC/SC/ST/EWS.",
+      "NSP Post-Matric for Minorities: ₹30,000/yr + fee aid.",
+      "HDFC Bank Parivartan ECSS: Up to ₹75,000/yr for underprivileged students.",
+      "Tata Capital Pankh Scholarship: Up to ₹50,000/yr (80% fee coverage)."
+    ],
+    needsVerification: "Income certificate must be in parents' name with student listed as dependent.",
+    officialSource: "Revenue Department State Portals",
+    suggestedAction: "Select Income 'Under ₹2.5L' in Explorer to see all qualifying schemes."
   },
   {
     keywords: ["girls", "women", "female", "girl child", "stem"],
-    title: "Exclusive Scholarships for Female Students",
-    response: "Top dedicated scholarships for female students:\n\n1. **Kotak Kanya Scholarship**: ₹1,50,000/year for professional degrees (Min 75% in 12th).\n2. **AICTE Pragati**: ₹50,000/year for girls in engineering and technical programs.\n3. **Infosys Foundation STEM Stars**: ₹1,00,000/year for girls in STEM.\n4. **L'Oréal India Young Women in Science**: ₹2,50,000 for pure science/engineering.\n5. **Santoor Women’s Scholarship**: ₹24,000/year for general graduation.\n\nFilter by Category: 'Female' in the Explorer section to review full eligibility!",
-    suggestedQuery: "What is Kotak Kanya eligibility?"
-  },
-  {
-    keywords: ["deadline", "closing soon", "last date", "when to apply"],
-    title: "Upcoming Deadlines & Time-Sensitive Schemes",
-    response: "⚡ **Upcoming Deadlines to Watch:**\n\n• **Santoor Women's Scholarship**: Closing in 9 days (Sep 5)\n• **AICTE Pragati**: Closing in 12 days (Sep 8)\n• **Kotak Kanya Scholarship**: Closing in 14 days (Sep 10)\n• **Karnataka SSP Post-Matric**: Closing Sep 12\n• **HDFC Parivartan ECSS**: Closing Sep 18\n• **Reliance Foundation UG**: Closing Sep 30\n\nAlways submit at least 3-5 days before the deadline to prevent server timeout errors on government portals.",
-    suggestedQuery: "Show verified scholarships only"
+    title: "Dedicated Scholarships for Female Students",
+    knownFacts: [
+      "Kotak Kanya Scholarship: ₹1,50,000/year for professional degrees (Min 75% in 12th).",
+      "AICTE Pragati: ₹50,000/year for girls in engineering and technical programs.",
+      "Infosys Foundation STEM Stars: ₹1,00,000/year covering tuition, living & books.",
+      "Santoor Women’s Scholarship: ₹24,000/year for girls from government schools."
+    ],
+    needsVerification: "Some schemes require declaration that there are no more than 2 girl beneficiaries in the family.",
+    officialSource: "AICTE & Corporate Foundation Guidelines",
+    suggestedAction: "Filter by Category 'Female Only Schemes' in Explorer."
   },
   {
     keywords: ["multiple", "two scholarships", "can i apply for both"],
-    title: "Can You Apply for Multiple Scholarships?",
-    response: "Yes, you can apply to multiple scholarships, but observe these key rules:\n\n• **Govt + Govt**: You can generally receive only **ONE** central/state government tuition scholarship at a time (as DBT checks duplicate Aadhaar entries).\n• **Govt + Corporate CSR**: Most private CSR scholarships (like HDFC, Tata, Reliance) allow combining with non-conflicting government assistance, provided total aid does not exceed actual tuition and educational expenses.\n• **Always verify**: Read the specific scheme guidelines on the official portal before accepting duplicate awards.",
-    suggestedQuery: "Which scholarships are 100% verified?"
+    title: "Rules on Applying for Multiple Scholarships",
+    knownFacts: [
+      "You can apply for multiple scholarships during the discovery phase.",
+      "Government + Government: You can accept only ONE government tuition scholarship at a time (DBT Aadhaar duplicate check).",
+      "Government + Private CSR: Most CSR scholarships (Tata, HDFC, Reliance) allow combining with non-conflicting government aid, provided total funding does not exceed actual tuition and educational expenses."
+    ],
+    needsVerification: "Always check the specific terms on the official application portal before final acceptance.",
+    officialSource: "Ministry of Education DBT Guidelines",
+    suggestedAction: "Apply to multiple schemes and choose the highest-value award if selected."
   }
 ];
