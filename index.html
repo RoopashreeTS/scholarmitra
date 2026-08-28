@@ -249,98 +249,105 @@
                   Enrolled Course / Degree <span class="form-label-hint">(Select your stream)</span>
                 </label>
                 <select id="profileCourse" class="form-control">
-                  <option value="BCA">BCA (Bachelor of Computer Applications)</option>
-                  <option value="B.Tech / BE">B.Tech / BE (Engineering & Tech)</option>
-                  <option value="B.Sc">B.Sc (Pure Sciences / IT)</option>
-                  <option value="B.Com">B.Com / BBA (Commerce & Mgmt)</option>
-                  <option value="MBBS">MBBS / BDS (Medical)</option>
-                  <option value="Diploma">Diploma / Polytechnic</option>
-                  <option value="MCA">MCA / M.Tech (Postgraduate Tech)</option>
-                  <option value="BA">BA (Humanities / Arts)</option>
-                </select>
+    <option value="" selected disabled>Select your course / degree</option>
+    <option value="BCA">BCA (Bachelor of Computer Applications)</option>
+    <option value="B.Tech / BE">B.Tech / BE (Engineering & Tech)</option>
+    <option value="B.Sc">B.Sc (Pure Sciences / IT)</option>
+    <option value="B.Com">B.Com / BBA (Commerce & Mgmt)</option>
+    <option value="MBBS">MBBS / BDS (Medical)</option>
+    <option value="Diploma">Diploma / Polytechnic</option>
+    <option value="MCA">MCA / M.Tech (Postgraduate Tech)</option>
+    <option value="BA">BA (Humanities / Arts)</option>
+</select>
               </div>
 
-              <!-- Year of Study -->
-              <div class="form-group">
-                <label class="form-label" for="profileYear">
-                  Year of Study <span class="form-label-hint">(Current academic year)</span>
-                </label>
-                <select id="profileYear" class="form-control">
-                  <option value="1st Year">1st Year (Fresher)</option>
-                  <option value="2nd Year">2nd Year</option>
-                  <option value="3rd Year">3rd Year</option>
-                  <option value="4th Year">4th Year (Final Year)</option>
-                </select>
-              </div>
+            <!-- Year of Study -->
+<div class="form-group">
+    <label class="form-label" for="profileYear">
+        Year of Study
+        <span class="form-label-hint">(Current academic year)</span>
+    </label>
 
-              <!-- Domicile State -->
-              <div class="form-group">
-                <label class="form-label" for="profileState">
-                  Domicile State <span class="form-label-hint">(Home state)</span>
-                </label>
-                <select id="profileState" class="form-control">
-                  <option value="Karnataka">Karnataka</option>
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Tamil Nadu">Tamil Nadu</option>
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                  <option value="Telangana">Telangana</option>
-                  <option value="Delhi">Delhi NCR</option>
-                  <option value="Uttar Pradesh">Uttar Pradesh</option>
-                  <option value="All India">Other State (Pan-India Schemes)</option>
-                </select>
-              </div>
+    <select id="profileYear" class="form-control">
+        <option value="" selected disabled>Select year</option>
+        <option value="1st Year">1st Year (Fresher)</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year (Final Year)</option>
+    </select>
+</div>
 
-              <!-- Percentage / CGPA -->
-              <div class="form-group">
-                <label class="form-label" for="profilePercentage">
-                  Percentage / CGPA <span class="form-label-hint">(Previous exam % or equivalent)</span>
-                </label>
-                <input type="number" id="profilePercentage" class="form-control" value="78" min="35" max="100" step="0.1" placeholder="e.g. 78.5">
-              </div>
+             <!-- Domicile State -->
+<div class="form-group">
+  <label class="form-label" for="profileState">
+    Domicile State
+    <span class="form-label-hint">(Home state)</span>
+  </label>
 
-              <!-- Category -->
-              <div class="form-group">
-                <label class="form-label" for="profileCategory">
-                  Social Category <span class="form-label-hint">(As per certificate)</span>
-                </label>
-                <select id="profileCategory" class="form-control">
-                  <option value="OBC">OBC (Other Backward Classes / Category 1, 2A, 2B, 3A, 3B)</option>
-                  <option value="SC">SC (Scheduled Caste)</option>
-                  <option value="ST">ST (Scheduled Tribe)</option>
-                  <option value="General">General / Open Category</option>
-                  <option value="EWS">EWS (Economically Weaker Section)</option>
-                  <option value="Minority">Minority (Muslim, Christian, Jain, Sikh, Parsi, Buddhist)</option>
-                  <option value="PwD">Differently-Abled (PwD ≥ 40%)</option>
-                </select>
-              </div>
+  <select id="profileState" class="form-control">
+    <option value="" selected disabled>Select state</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Andhra Pradesh">Andhra Pradesh</option>
+    <option value="Telangana">Telangana</option>
+    <option value="Delhi">Delhi NCR</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="All India">Other State (Pan-India Schemes)</option>
+  </select>
+</div>
+
+             <!-- Percentage / CGPA -->
+<div class="form-group">
+  <label class="form-label" for="profilePercentage">
+    Percentage / CGPA
+    <span class="form-label-hint">(Previous exam % or equivalent)</span>
+  </label>
+
+  <input
+    type="number"
+    id="profilePercentage"
+    class="form-control"
+    placeholder="Enter your percentage"
+    min="35"
+    max="100"
+    step="0.1"
+  >
+</div>
 
               <!-- Annual Family Income -->
-              <div class="form-group">
-                <label class="form-label" for="profileIncome">
-                  Annual Family Income <span class="form-label-hint">(Gross annual income)</span>
-                </label>
-                <select id="profileIncome" class="form-control">
-                  <option value="150000">Below ₹1.5 Lakhs / year (BPL / Priority)</option>
-                  <option value="200000">Below ₹2.0 Lakhs / year</option>
-                  <option value="250000" selected>Below ₹2.5 Lakhs / year (SSP / NSP standard)</option>
-                  <option value="400000">Below ₹4.0 Lakhs / year</option>
-                  <option value="600000">Below ₹6.0 Lakhs / year</option>
-                  <option value="800000">Below ₹8.0 Lakhs / year (AICTE / EWS ceiling)</option>
-                  <option value="1500000">Above ₹8.0 Lakhs / year (Merit-only)</option>
-                </select>
-              </div>
+<div class="form-group">
+    <label class="form-label" for="profileIncome">
+        Annual Family Income
+        <span class="form-label-hint">(Gross annual income)</span>
+    </label>
 
-              <!-- Gender -->
-              <div class="form-group" style="grid-column: 1 / -1; max-width: 320px;">
-                <label class="form-label" for="profileGender">
-                  Gender Preference
-                </label>
-                <select id="profileGender" class="form-control">
-                  <option value="Female">Female (Include Girls in STEM schemes)</option>
-                  <option value="Male">Male</option>
-                  <option value="Any">Any / Other</option>
-                </select>
-              </div>
+    <select id="profileIncome" class="form-control">
+        <option value="" selected disabled>Select income range</option>
+        <option value="below-1">Below ₹1 Lakh</option>
+        <option value="1-2.5">₹1 Lakh – ₹2.5 Lakhs</option>
+        <option value="2.5-5">₹2.5 Lakhs – ₹5 Lakhs</option>
+        <option value="5-8">₹5 Lakhs – ₹8 Lakhs</option>
+        <option value="8-10">₹8 Lakhs – ₹10 Lakhs</option>
+        <option value="above-10">Above ₹10 Lakhs</option>
+    </select>
+</div>
+
+             <!-- Gender Preference -->
+<div class="form-group">
+    <label class="form-label" for="profileGender">
+        Gender Preference
+        <span class="form-label-hint">(Select your preference)</span>
+    </label>
+
+    <select id="profileGender" class="form-control">
+        <option value="" selected disabled>Select gender</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="other">Other</option>
+        <option value="any">Any / No Preference</option>
+    </select>
+</div>
             </div>
 
             <div class="matcher-actions">
