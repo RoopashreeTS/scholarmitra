@@ -934,3 +934,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.querySelector('.floating-chat-btn').addEventListener('click', function () {
+  const chatWindow = document.querySelector('.floating-chat-window');
+
+  if (chatWindow) {
+    chatWindow.classList.toggle('open');
+  }
+});
+// ===== SCHOLARMITRA CHAT FIX =====
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Find chat input
+    const input =
+        document.querySelector(".floating-chat-input input") ||
+        document.querySelector(".floating-chat-input textarea");
+
+    // Find send button
+    const sendBtn =
+        document.querySelector(".floating-chat-input button");
+
+    // Find message area
+    const messages =
+        document.querySelector(".floating-chat-messages") ||
+        document.querySelector(".chat-messages");
+
+    if (!input || !sendBtn || !messages) {
+        console.log("Chat elements missing");
+        return;
+    }
+
+    function sendChatMessage() {
+
+        const text = input.value.trim();
+
+        if (!text) {
+            return;
+        }
+
+        // Add user's message
+        const userMsg = document.createElement("div");
+        userMsg.className = "chat-message user-message";
+        userMsg.textContent = text;
+
+        messages.appendChild(userMsg);
+
+        // Clear input
+        input.value = "";
+
+        // Scroll down
+        messages.scrollTop = messages.scrollHeight;
+
+        // AI reply
+        setTimeout(function () {
+
+            const aiMsg = document.createElement("div");
+            aiMsg.className = "chat-message ai-message";
+
+            aiMsg.textContent =
+                "🤖 Hello! I'm ScholarMitra AI. I can help you with scholarships. Please tell me your course, qualification, state, or scholarship question.";
+
+            messages.appendChild(aiMsg);
+
+            messages.scrollTop = messages.scrollHeight;
+
+        }, 600);
+    }
+
+    // Click send button
+    sendBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        sendChatMessage();
+    });
+
+    // Press Enter
+    input.addEventListener("keydown", function (e) {
+
+        if (e.key === "Enter") {
+            e.preventDefault();
+            sendChatMessage();
+        }
+
+    });
+
+});
